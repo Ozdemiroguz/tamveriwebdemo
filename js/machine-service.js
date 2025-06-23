@@ -47,7 +47,6 @@ async function getUserAssignedMachines(workplaceId, userId) {
             .doc(workplaceId)
             .collection('machines')
             .where('assignedUserIds', 'array-contains', userId)
-            .orderBy('createdAt', 'desc')
             .get();
 
         const machines = [];
@@ -56,6 +55,12 @@ async function getUserAssignedMachines(workplaceId, userId) {
                 id: doc.id,
                 ...doc.data()
             });
+        });
+
+        // createdAt alanına göre azalan şekilde sırala (en yeni başta)
+        machines.sort((a, b) => {
+            if (!a.createdAt || !b.createdAt) return 0;
+            return b.createdAt.seconds - a.createdAt.seconds;
         });
 
         console.log('Assigned machines loaded:', machines.length);

@@ -405,8 +405,10 @@ function setupRealTimeUpdates() {
         // Admin tüm makine güncellemelerini dinler
         machineUpdateListener = listenToMachineUpdates(currentUser.workplaceId, handleMachineUpdates);
     } else {
-        // Worker sadece kendi makinelerini dinler
-        machineUpdateListener = listenToUserMachineUpdates(currentUser.workplaceId, currentUser.id, handleMachineUpdates);
+        // Worker sadece kendi makinelerini bir defa çeker
+        getUserAssignedMachines(currentUser.workplaceId, currentUser.id)
+            .then(machines => handleMachineUpdates(machines))
+            .catch(error => handleMachineUpdates([], error));
     }
 }
 

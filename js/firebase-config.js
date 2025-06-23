@@ -18,4 +18,4 @@ window.auth = firebase.auth();
 window.db = firebase.firestore();
 
 // App key for mobile access - Güvenli mobil erişim anahtarı
-window.APP_KEY = "secret";
+window.APP_KEY = "SECRET";

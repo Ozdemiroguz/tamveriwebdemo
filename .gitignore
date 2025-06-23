@@ -1,9 +1,6 @@
 # Node
 node_modules/
 
-# Firebase config (gizli tut)
-js/firebase-config.js
-
 # Diğer
 .env
 .env.example

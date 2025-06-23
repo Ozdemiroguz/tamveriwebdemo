@@ -233,3 +233,64 @@ Bu sistem sayesinde platformdan bağımsız, güvenli ve tutarlı bir panel sağ
 * Minimum ama yeterli veri ile işlem yapılır
 * Gerçek zamanlı güncellemeler desteklenir
 * İleri geliştirmeler (analitik, çok dilli destek vb.) bu temel yapı korunarak kolayca eklenebilir.
+
+## 📁 Proje Yapısı
+
+Proje, temel HTML, CSS ve JavaScript dosyalarından oluşmaktadır. Ana dizin yapısı aşağıdaki gibidir:
+
+```
+create-test-data.js
+dashboard.html
+env.js
+generate-env.js
+index.html
+package.json
+readme.md
+setup-test-data.html
+vercel.json
+assets/
+	locales/
+		bg.json
+		en.json
+		tr.json
+css/
+	dashboard.css
+	login.css
+	main.css
+js/
+	app.js
+	auth.js
+	dashboard.js
+	firebase-config.example.js
+	firebase-config.js
+	machine-service.js
+	user-service.js
+	utils.js
+```
+
+*   `index.html`: Web girişi için ana sayfa.
+*   `dashboard.html`: Kullanıcı giriş yaptıktan sonra yönlendirildiği kontrol paneli sayfası.
+*   `css/`: Stil dosyalarını içerir.
+*   `js/`: JavaScript dosyalarını içerir. `auth.js` kimlik doğrulama işlemlerini, `dashboard.js` kontrol paneli arayüzünü, `*-service.js` dosyaları Firebase ile veri etkileşimlerini yönetir.
+*   `assets/locales/`: Dil dosyalarını içerir.
+*   `create-test-data.js`, `setup-test-data.html`: Test verisi oluşturmak için yardımcı dosyalar.
+*   `vercel.json`: Vercel dağıtım ayarları.
+
+## 🚀 Geliştirme Ortamı Kurulumu
+
+Projeyi yerel ortamınızda çalıştırmak için aşağıdaki adımları izleyin:
+
+1.  **Firebase Yapılandırması:** `js/firebase-config.example.js` dosyasını kopyalayarak `js/firebase-config.js` adında yeni bir dosya oluşturun ve kendi Firebase proje ayarlarınızı buraya ekleyin. Proje, yapılandırmayı doğrudan bu dosyadan okuyacaktır.
+2.  **Bağımlılıkları Yükleyin:** Proje bağımlılıklarını yüklemek için terminalde aşağıdaki komutu çalıştırın:
+
+    ```bash
+    npm install
+    ```
+3.  **Geliştirme Sunucusunu Başlatın:** VS Code görevlerini kullanarak projeyi çalıştırabilirsiniz. "Start Development Server" görevini çalıştırın.
+
+    ```bash
+    # Alternatif olarak terminalde manuel olarak çalıştırabilirsiniz:
+    npx live-server --port=3000 --open=/index.html
+    ```
+
+Bu komut, projeyi `http://localhost:3000` adresinde başlatacak ve `index.html` sayfasını tarayıcınızda açacaktır.

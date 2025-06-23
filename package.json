@@ -5,7 +5,6 @@
     "main": "index.html",
     "scripts": {
         "dev": "live-server --port=3000 --open=/index.html",
-        "build": "rm -rf public && mkdir public && mkdir public/css public/js public/assets && cp index.html public/ && cp dashboard.html public/ && cp setup-test-data.html public/ && cp -R css/* public/css/ && cp -R assets/* public/assets/ && cp js/firebase-config.js public/js/ && cp js/auth.js public/js/ && cp js/utils.js public/js/ && cp js/app.js public/js/",
         "start": "live-server --port=8080 --open=/index.html"
     },
     "dependencies": {

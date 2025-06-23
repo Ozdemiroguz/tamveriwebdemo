@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (isLoginPage) {
         // Zaten giriş yapmış kullanıcıyı dashboard'a yönlendir
-        const currentUser = getCurrentUser();
+        const currentUser = (typeof getCurrentUser === 'function') ? getCurrentUser() : null;
         if (currentUser) {
             console.log('User already logged in, redirecting to dashboard');
             window.location.href = 'dashboard.html';
@@ -17,12 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Auth state değişikliklerini dinle (sadece login sayfasında)
-        auth.onAuthStateChanged((user) => {
-            if (user) {
-                console.log('User logged in, redirecting to dashboard');
-                window.location.href = 'dashboard.html';
-            }
-        });
+        if (typeof auth !== 'undefined') {
+            auth.onAuthStateChanged((user) => {
+                if (user) {
+                    console.log('User logged in, redirecting to dashboard');
+                    window.location.href = 'dashboard.html';
+                }
+            });
+        } else {
+            console.error('auth globali tanımlı değil!');
+        }
     }
 
     // Login form event listener'ı ekle

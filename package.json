@@ -5,7 +5,7 @@
     "main": "index.html",
     "scripts": {
         "dev": "live-server --port=3000 --open=/index.html",
-        "build": "node generate-env.js && rm -rf $VERCEL_OUTPUT_DIR && mkdir -p $VERCEL_OUTPUT_DIR/css $VERCEL_OUTPUT_DIR/js $VERCEL_OUTPUT_DIR/assets && cp index.html dashboard.html setup-test-data.html env.js $VERCEL_OUTPUT_DIR/ && cp css/* $VERCEL_OUTPUT_DIR/css/ && cp js/* $VERCEL_OUTPUT_DIR/js/ && cp assets/* $VERCEL_OUTPUT_DIR/assets/",
+        "build": "node generate-env.js && rm -rf $VERCEL_OUTPUT_DIR && mkdir -p $VERCEL_OUTPUT_DIR/css $VERCEL_OUTPUT_DIR/js $VERCEL_OUTPUT_DIR/assets && cp index.html dashboard.html setup-test-data.html env.js $VERCEL_OUTPUT_DIR/ && cp css/* $VERCEL_OUTPUT_DIR/css/ && cp js/* $VERCEL_OUTPUT_DIR/js/ && cp -R assets/* $VERCEL_OUTPUT_DIR/assets/",
         "start": "live-server --port=8080 --open=/index.html"
     },
     "dependencies": {

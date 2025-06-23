@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tam Veri Demo Web - Dashboard</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- Environment variables injected during build -->
+    <script src="env.js"></script>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-left">
+                <h1 class="nav-logo">Tam Veri Demo Web</h1>
+                <span class="workplace-name" id="workplaceName">-</span>
+            </div>
+            <div class="nav-right">
+                <span class="user-info" id="userInfo">-</span>
+                <button class="logout-btn" id="logoutBtn">Çıkış</button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Stats Cards -->
+            <div class="stats-section">
+                <div class="stat-card active">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="activeMachines">0</span>
+                        <span class="stat-label">Aktif Makine</span>
+                    </div>
+                </div>
+                <div class="stat-card error">
+                    <div class="stat-icon">❌</div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="errorMachines">0</span>
+                        <span class="stat-label">Hatalı Makine</span>
+                    </div>
+                </div>
+                <div class="stat-card maintenance">
+                    <div class="stat-icon">🔧</div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="maintenanceMachines">0</span>
+                        <span class="stat-label">Bakımda</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Machine List -->
+            <div class="machines-section">
+                <div class="section-header">
+                    <h2>Makineler</h2>
+                    <div class="filter-controls" id="filterControls">
+                        <button class="filter-btn active" data-filter="all">Tümü</button>
+                        <button class="filter-btn" data-filter="active">Aktif</button>
+                        <button class="filter-btn" data-filter="error">Hatalı</button>
+                        <button class="filter-btn" data-filter="maintenance">Bakım</button>
+                    </div>
+                </div>
+
+                <div class="machines-grid" id="machinesGrid">
+                    <!-- Machine cards will be populated here -->
+                </div>
+            </div>
+
+            <!-- User Management (Admin Only) -->
+            <div class="users-section" id="usersSection" style="display: none;">
+                <div class="section-header">
+                    <h2>Kullanıcı Yönetimi</h2>
+                </div>
+                <div class="users-list" id="usersList">
+                    <!-- User list will be populated here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Machine Detail Modal -->
+    <div class="modal" id="machineModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalMachineTitle">Makine Detayı</h3>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body" id="modalMachineBody">
+                <!-- Machine details will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <p>Yükleniyor...</p>
+    </div>
+
+    <!-- Firebase CDN -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <!-- App Scripts -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/user-service.js"></script>
+    <script src="js/machine-service.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

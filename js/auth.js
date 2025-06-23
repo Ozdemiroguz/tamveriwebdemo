@@ -105,7 +105,7 @@ function onAuthStateChange(callback) {
  * Mevcut kullanıcıyı döndürür
  */
 function getCurrentUser() {
-    return auth.currentUser;
+    return (typeof auth !== 'undefined' ? auth.currentUser : null);
 }
 
 /**

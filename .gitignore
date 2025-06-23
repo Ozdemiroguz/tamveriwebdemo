@@ -1,0 +1,12 @@
+# Node
+node_modules/
+
+# Firebase config (gizli tut)
+js/firebase-config.js
+
+# Diğer
+.env
+.env.example
+.DS_Store
+create-test-data.js
+env.js

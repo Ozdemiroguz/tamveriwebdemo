@@ -1,0 +1,26 @@
+{
+    "name": "tamveridemoweb",
+    "version": "1.0.0",
+    "description": "Web kontrol paneli - Firebase entegrasyonlu makine yönetim sistemi",
+    "main": "index.html",
+    "scripts": {
+        "dev": "live-server --port=3000 --open=/index.html",
+        "build": "node generate-env.js && mkdir -p public && cp -R index.html dashboard.html setup-test-data.html css js assets env.js public/",
+        "start": "live-server --port=8080 --open=/index.html"
+    },
+    "dependencies": {
+        "dotenv": "^16.5.0",
+        "firebase": "^10.0.0"
+    },
+    "devDependencies": {
+        "live-server": "^1.2.2"
+    },
+    "keywords": [
+        "firebase",
+        "dashboard",
+        "web-panel",
+        "machine-management"
+    ],
+    "author": "TamVeriWeb Team",
+    "license": "MIT"
+}
